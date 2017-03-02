@@ -195,6 +195,7 @@ module Jabber
     # Compare two presences using priority
     # (with cmp_interest as fall-back).
     def <=>(o)
+      return nil unless o.respond_to?(:priority)
       if priority.to_i == o.priority.to_i
         cmp_interest(o)
       else
